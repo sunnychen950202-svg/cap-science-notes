@@ -16,20 +16,8 @@ python -m http.server 8000
 
 再開啟 `http://localhost:8000`。Windows 也可以試 `py -m http.server 8000`。停止時按 `Ctrl+C`。
 
-## 二、部署到 GitHub Pages
 
-1. 登入 [GitHub](https://github.com/) → 按右上角 `+` → `New repository`。
-2. Repository name 建議設 `cap-science-notes`；選擇 **Public** → `Create repository`。
-3. 進入新倉庫，點 `uploading an existing file`（或 `Add file` → `Upload files`）。
-4. 把**解壓縮後專案裡的所有檔案與資料夾**上傳到倉庫根目錄，包含 `AGENTS.md`、`index.html`、`guide.html`、`app.js`、`styles.css`、`data/`、`assets/`、`scripts/`、`templates/`；**不要把整個 ZIP 當作網站上傳**，也不要多包一層 `cap-science-notes` 資料夾。
-5. 點 `Commit changes`，確保預設分支是 `main`。
-6. 到倉庫 `Settings` → `Pages` → `Build and deployment` → `Source` 選 **Deploy from a branch**。
-7. `Branch` 選 **main**，資料夾選 **/ (root)** → `Save`。
-8. 部署完成後，開啟 `https://你的GitHub帳號.github.io/cap-science-notes/`。這是格式示例，不是已經存在的網址；請使用你的真實帳號驗證後才繳交。
-
-> 如果幾分鐘後尚未顯示，回到 Settings → Pages 或 Actions 查看部署狀態。必須確定 `index.html` 在倉庫**最外層**。
-
-## 三、如何讓 AI 繼續幫你新增筆記
+## 二、如何讓 AI 繼續幫你新增筆記
 
 **最重要的是先給 AI 看 `AGENTS.md`**。例如：
 
@@ -43,7 +31,7 @@ AI 把新單元加進 `data/notes.js` 後，首頁卡片、搜尋結果、文章
 node scripts/check-content.mjs
 ```
 
-## 四、資料與安全說明
+## 三、資料與安全說明
 
 - 筆記與題目存放在 `data/notes.js`，網站程式在 `app.js`，外觀樣式在 `styles.css`。
 - 已讀進度儲存在瀏覽器 `localStorage`，不會傳送到伺服器；不同裝置不會自動同步。
