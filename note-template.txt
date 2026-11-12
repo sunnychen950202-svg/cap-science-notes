@@ -1,0 +1,33 @@
+新增單元時，複製下列「一個物件」，貼到 data/notes.js 的 globalThis.EXAM_NOTES 陣列中。
+欄位格式及檢查規則詳見 AGENTS.md；本範例僅提供格式，不要原樣當作正式教材提交。
+
+{
+  slug: "new-topic-name",
+  subject: "physical", strand: "物理",  // 理化才有 strand: "物理" 或 "化學"
+  unit: "單元名稱",
+  title: "這個章節的名稱",
+  summary: "這章會學到什麼？用一句話說清楚。",
+  minutes: 8,
+  keywords: ["關鍵字一", "關鍵字二", "關鍵字三"],
+  takeaways: [
+    "第一個重要觀念。",
+    "第二個重要觀念。",
+    "第三個重要觀念。"
+  ],
+  sections: [
+    { title: "第一節標題", text: "這一節用國中生容易懂的方式解釋。", bullets: ["一個重要細節。", "第二個重要細節。"] },
+    { title: "第二節標題", text: "搭配生活例子說明原理。", bullets: ["一個容易混淆的觀念。", "正確觀念與條件。"] }
+  ],
+  // formula 可省略。如有公式才加入這個欄位，並務必寫清符號、單位、適用條件：
+  // formula: { label: "公式名稱", expression: "公式", explanation: "變數定義、單位及條件。" },
+  trap: "常見誤解與正確觀念，說明為何錯。",
+  memory: "一個短而準確的記憶提示。",
+  question: {
+    stem: "原創四選一題目：下列何者正確？",
+    options: ["選項 A", "選項 B", "選項 C", "選項 D"],
+    answer: 0,
+    explanation: "為什麼 A 對，並解釋其他選項的關鍵問題。"
+  }
+}
+
+備註：若是生物或地球科學，請改成 subject: "biology" 或 "earth"，並刪除 strand。
