@@ -16,7 +16,7 @@ python -m http.server 8000
 
 再開啟 `http://localhost:8000`。Windows 也可以試 `py -m http.server 8000`。停止時按 `Ctrl+C`。
 
-## 二、部署到 GitHub Pages（不需要寫程式）
+## 二、部署到 GitHub Pages
 
 1. 登入 [GitHub](https://github.com/) → 按右上角 `+` → `New repository`。
 2. Repository name 建議設 `cap-science-notes`；選擇 **Public** → `Create repository`。
@@ -50,14 +50,4 @@ node scripts/check-content.mjs
 - 題目與知識內容應由授課教師或可靠教材覆核；網站是複習輔助，非正式課綱或考試命題保證。
 - 自然科會考命題相關資料，建議參考[國中教育會考官方網站](https://cap.rcpet.edu.tw/)與[官方自然科問與答](https://cap-rcpet.rcpet.edu.tw/test5-6.html)。
 
-## 五、作業繳交範本（請改成真實網址）
 
-**專案簡介**：本專案為國中會考自然筆記網站，提供生物、理化、地球科學的重點整理與互動自測，希望幫助家教學生在課後有系統地複習。我建立 `AGENTS.md`，規範網站科目分類、資料欄位、視覺設計、命名規則與驗證流程，確保 AI 能持續新增內容。
-
-**GitHub Repository**：`https://github.com/你的帳號/cap-science-notes`
-
-**公開網站**：`https://你的帳號.github.io/cap-science-notes/`
-
-**AGENTS.md**：倉庫根目錄 `AGENTS.md`（可附網址 `https://github.com/你的帳號/cap-science-notes/blob/main/AGENTS.md`）
-
-**規則如何幫助延伸**：當要新增章節時，AI 只需閱讀 `AGENTS.md`，照固定格式在 `data/notes.js` 加入新單元，不必重新設計頁面。系統會自動顯示新的單元卡片、文章頁與測驗，並能透過驗證腳本檢查欄位是否完整，維持各篇內容的一致性。
