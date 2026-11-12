@@ -1,0 +1,63 @@
+# 會考自然補給站（Science Notes）
+
+這是為國中學生設計的**自然科重點筆記網站**，分為 **生物、理化、地球科學** 三大科目。理化內再以標籤區分「物理」與「化學」，不會拆成兩個頂層科目。
+
+網站主要功能：13 篇示範筆記、關鍵字搜尋、重點摘要與易錯提醒、每章 1 題原創四選一測驗、五題快測與本機已讀進度。所有內容為示範性自編教材，非會考歷屆官方題目。
+
+## 一、先看看網站
+
+**最簡單：** 直接雙擊下載後的 `index.html`，用瀏覽器開啟（也可查看 `guide.html`）。此專案沒有套件依賴，不用安裝 Node.js 才能看網頁。
+
+**建議開發預覽方式：** 在專案資料夾開啟終端機並執行：
+
+```bash
+python -m http.server 8000
+```
+
+再開啟 `http://localhost:8000`。Windows 也可以試 `py -m http.server 8000`。停止時按 `Ctrl+C`。
+
+## 二、部署到 GitHub Pages（不需要寫程式）
+
+1. 登入 [GitHub](https://github.com/) → 按右上角 `+` → `New repository`。
+2. Repository name 建議設 `cap-science-notes`；選擇 **Public** → `Create repository`。
+3. 進入新倉庫，點 `uploading an existing file`（或 `Add file` → `Upload files`）。
+4. 把**解壓縮後專案裡的所有檔案與資料夾**上傳到倉庫根目錄，包含 `AGENTS.md`、`index.html`、`guide.html`、`app.js`、`styles.css`、`data/`、`assets/`、`scripts/`、`templates/`；**不要把整個 ZIP 當作網站上傳**，也不要多包一層 `cap-science-notes` 資料夾。
+5. 點 `Commit changes`，確保預設分支是 `main`。
+6. 到倉庫 `Settings` → `Pages` → `Build and deployment` → `Source` 選 **Deploy from a branch**。
+7. `Branch` 選 **main**，資料夾選 **/ (root)** → `Save`。
+8. 部署完成後，開啟 `https://你的GitHub帳號.github.io/cap-science-notes/`。這是格式示例，不是已經存在的網址；請使用你的真實帳號驗證後才繳交。
+
+> 如果幾分鐘後尚未顯示，回到 Settings → Pages 或 Actions 查看部署狀態。必須確定 `index.html` 在倉庫**最外層**。
+
+## 三、如何讓 AI 繼續幫你新增筆記
+
+**最重要的是先給 AI 看 `AGENTS.md`**。例如：
+
+> 請先閱讀專案的 AGENTS.md，遵守裡面的三科分類與筆記格式。幫我新增「光的折射」單元，分類為理化／物理。只修改 data/notes.js，寫 3 個核心觀念、2 個重點段落、常見誤區及 1 題原創四選一練習。修改完執行 node scripts/check-content.mjs。
+
+AI 把新單元加進 `data/notes.js` 後，首頁卡片、搜尋結果、文章頁與五題快測就會**自動帶入新內容**，不需另外新增 HTML。重新把改過的檔案上傳 GitHub 即可更新公開網站。
+
+可用以下指令驗證資料格式（開發者需安裝 Node.js）：
+
+```bash
+node scripts/check-content.mjs
+```
+
+## 四、資料與安全說明
+
+- 筆記與題目存放在 `data/notes.js`，網站程式在 `app.js`，外觀樣式在 `styles.css`。
+- 已讀進度儲存在瀏覽器 `localStorage`，不會傳送到伺服器；不同裝置不會自動同步。
+- 題目與知識內容應由授課教師或可靠教材覆核；網站是複習輔助，非正式課綱或考試命題保證。
+- 自然科會考命題相關資料，建議參考[國中教育會考官方網站](https://cap.rcpet.edu.tw/)與[官方自然科問與答](https://cap-rcpet.rcpet.edu.tw/test5-6.html)。
+
+## 五、作業繳交範本（請改成真實網址）
+
+**專案簡介**：本專案為國中會考自然筆記網站，提供生物、理化、地球科學的重點整理與互動自測，希望幫助家教學生在課後有系統地複習。我建立 `AGENTS.md`，規範網站科目分類、資料欄位、視覺設計、命名規則與驗證流程，確保 AI 能持續新增內容。
+
+**GitHub Repository**：`https://github.com/你的帳號/cap-science-notes`
+
+**公開網站**：`https://你的帳號.github.io/cap-science-notes/`
+
+**AGENTS.md**：倉庫根目錄 `AGENTS.md`（可附網址 `https://github.com/你的帳號/cap-science-notes/blob/main/AGENTS.md`）
+
+**規則如何幫助延伸**：當要新增章節時，AI 只需閱讀 `AGENTS.md`，照固定格式在 `data/notes.js` 加入新單元，不必重新設計頁面。系統會自動顯示新的單元卡片、文章頁與測驗，並能透過驗證腳本檢查欄位是否完整，維持各篇內容的一致性。
